@@ -29,7 +29,7 @@ namespace example {
         // Affiche 50 car x a été capturé alors qu'il avait la valeur 10
         std::cout << multiply1(5) << std::endl;
 
-        // Lambda simple par valeur (copie)
+        // Lambda simple par référence 
         auto multiply2 = [&x](const int y) {
             return x * y;
         };
