@@ -15,7 +15,7 @@ import examples_lambdas;
 static auto var_globale = 123.45;
 
 int main() {
-    // cout << "Hello World!\n";
+    cout << "Hello World!\n";
     // int32_t i1{123};
     // auto i2 = 123;
     // const auto i3 = 123;
@@ -25,7 +25,7 @@ int main() {
     //
     // function2();
 
-    example::example_lambdas();
+    // example::example_lambdas();
 
     return 0;
 }
