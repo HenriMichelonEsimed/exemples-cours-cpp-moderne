@@ -24,18 +24,18 @@ include(cmake/std.cmake)
 # Partie à mettre à jour manuellement
 # Liste des fichiers sources des modules des exercices
 set(PROJECT_FILES
-        ${SRC_DIR}/exo1.cppm
-        ${SRC_DIR}/mymodule.cppm
-        ${SRC_DIR}/mymodule_part1.cppm
-        ${SRC_DIR}/mymodule_part2.cppm
-        ${SRC_DIR}/control_struct.cppm
-        ${SRC_DIR}/enum_structs.cppm
-        ${SRC_DIR}/arrays.cppm
-        ${SRC_DIR}/my_module_2.cppm
-        ${SRC_DIR}/classes_objects.cppm
-        ${SRC_DIR}/inheritance_operators.cppm
-        ${SRC_DIR}/templates.cppm
-        ${SRC_DIR}/lambdas.cppm
+        ${SRC_DIR}/exo1.ixx
+        ${SRC_DIR}/mymodule.ixx
+        ${SRC_DIR}/mymodule_part1.ixx
+        ${SRC_DIR}/mymodule_part2.ixx
+        ${SRC_DIR}/control_struct.ixx
+        ${SRC_DIR}/enum_structs.ixx
+        ${SRC_DIR}/arrays.ixx
+        ${SRC_DIR}/my_module_2.ixx
+        ${SRC_DIR}/classes_objects.ixx
+        ${SRC_DIR}/inheritance_operators.ixx
+        ${SRC_DIR}/templates.ixx
+        ${SRC_DIR}/lambdas.ixx
 )
 # Liste des fichiers sources des tests unitaires
 set(TEST_FILES
