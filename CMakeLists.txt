@@ -19,6 +19,7 @@ set(TESTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
 # Pour "import std"
 include(cmake/std.cmake)
+include(cmake/compile_options.cmake)
 
 #######################################################
 # Partie à mettre à jour manuellement
@@ -50,6 +51,7 @@ add_executable(${PROJECT_NAME}
         ${SRC_DIR}/templates.cpp
         ${SRC_DIR}/lambdas.cpp
 )
+
 #######################################################
 
 # Pour les tests unitaires
@@ -61,6 +63,7 @@ target_sources(${PROJECT_NAME}
         FILES
         ${PROJECT_FILES}
 )
+compile_options(${PROJECT_NAME})
 
 # Exécutable pour les tests unitaires
 add_executable(tests ${TEST_FILES})
@@ -70,7 +73,7 @@ target_sources(tests
         FILES
         ${PROJECT_FILES}
 )
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain std-cxx-modules)
 
 # Configuration automatique pour CTest
 include(CTest)
