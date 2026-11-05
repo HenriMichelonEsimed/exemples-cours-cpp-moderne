@@ -42,14 +42,18 @@ set(PROJECT_FILES
 set(TEST_FILES
         ${TESTS_DIR}/exo1.cpp
 )
-# Exécutable principal
-add_executable(${PROJECT_NAME}
-        ${SRC_DIR}/main.cpp
+# Liste des fichiers d'implémentation des modules
+set(PROJECT_IMPLEMENTATION_FILES
         ${SRC_DIR}/my_module_2.cpp
         ${SRC_DIR}/classes_objects.cpp
         ${SRC_DIR}/inheritance_operators.cpp
         ${SRC_DIR}/templates.cpp
         ${SRC_DIR}/lambdas.cpp
+)
+# Exécutable principal
+add_executable(${PROJECT_NAME}
+        ${SRC_DIR}/main.cpp
+        ${PROJECT_IMPLEMENTATION_FILES}
 )
 
 #######################################################
@@ -66,7 +70,7 @@ target_sources(${PROJECT_NAME}
 compile_options(${PROJECT_NAME})
 
 # Exécutable pour les tests unitaires
-add_executable(tests ${TEST_FILES})
+add_executable(tests ${TEST_FILES} ${PROJECT_IMPLEMENTATION_FILES})
 target_sources(tests
         PUBLIC
         FILE_SET CXX_MODULES
