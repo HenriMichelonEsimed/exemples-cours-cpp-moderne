@@ -22,34 +22,13 @@ include(cmake/std.cmake)
 include(cmake/compile_options.cmake)
 
 #######################################################
-# Partie à mettre à jour manuellement
 # Liste des fichiers sources des modules des exercices
-set(PROJECT_FILES
-        ${SRC_DIR}/exo1.ixx
-        ${SRC_DIR}/mymodule.ixx
-        ${SRC_DIR}/mymodule_part1.ixx
-        ${SRC_DIR}/mymodule_part2.ixx
-        ${SRC_DIR}/control_struct.ixx
-        ${SRC_DIR}/enum_structs.ixx
-        ${SRC_DIR}/arrays.ixx
-        ${SRC_DIR}/my_module_2.ixx
-        ${SRC_DIR}/classes_objects.ixx
-        ${SRC_DIR}/inheritance_operators.ixx
-        ${SRC_DIR}/templates.ixx
-        ${SRC_DIR}/lambdas.ixx
-)
+file(GLOB PROJECT_FILES CONFIGURE_DEPENDS "${SRC_DIR}/*.ixx")
 # Liste des fichiers sources des tests unitaires
-set(TEST_FILES
-        ${TESTS_DIR}/exo1.cpp
-)
+file(GLOB TEST_FILES CONFIGURE_DEPENDS "${TESTS_DIR}/*.cpp")
 # Liste des fichiers d'implémentation des modules
-set(PROJECT_IMPLEMENTATION_FILES
-        ${SRC_DIR}/my_module_2.cpp
-        ${SRC_DIR}/classes_objects.cpp
-        ${SRC_DIR}/inheritance_operators.cpp
-        ${SRC_DIR}/templates.cpp
-        ${SRC_DIR}/lambdas.cpp
-)
+file(GLOB PROJECT_IMPLEMENTATION_FILES CONFIGURE_DEPENDS "${SRC_DIR}/*.cpp")
+list(REMOVE_ITEM PROJECT_IMPLEMENTATION_FILES "${SRC_DIR}/main.cpp")
 # Exécutable principal
 add_executable(${PROJECT_NAME}
         ${SRC_DIR}/main.cpp
