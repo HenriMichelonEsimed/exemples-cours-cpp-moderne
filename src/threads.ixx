@@ -33,9 +33,11 @@ public:
 
     void stop()
     {
-        for (auto& t : threads)
-        {
+        for (auto& t : threads) {
             t.request_stop();
+        }
+        for (auto& t : threads) {
+            t.join();
         }
     }
 
@@ -87,7 +89,6 @@ export int exemple_threads() {
             }
         });
     }
-    this_thread::sleep_for(1000ms);
     worker.stop();
 /*
     auto v = vector<jthread>{};
