@@ -1,6 +1,10 @@
+module;
 import std;
-using namespace std;
 import examples_inheritance;
+
+export module examples_thread;
+
+using namespace std;
 using namespace example;
 
 class Worker
@@ -25,6 +29,14 @@ public:
             tasks.push(std::move(task));
         }
         cv.notify_one();
+    }
+
+    void stop()
+    {
+        for (auto& t : threads)
+        {
+            t.request_stop();
+        }
     }
 
 private:
@@ -56,8 +68,7 @@ private:
 
 
 
-
-int main() {
+export int exemple_threads() {
     cout << "Hello World!\n";
 
     Worker worker;
@@ -76,6 +87,8 @@ int main() {
             }
         });
     }
+    this_thread::sleep_for(1000ms);
+    worker.stop();
 /*
     auto v = vector<jthread>{};
     v.reserve(5);

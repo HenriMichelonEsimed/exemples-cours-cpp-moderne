@@ -10,12 +10,13 @@ import my_module_2;
 import examples_classes_objects;
 import examples_inheritance;
 import examples_templates;
-import examples_lambdas;
+import examples_thread;
 
 static auto var_globale = 123.45;
 
 int main() {
     cout << "Hello World!\n";
+    exemple_threads();
     // int32_t i1{123};
     // auto i2 = 123;
     // const auto i3 = 123;
